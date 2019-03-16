@@ -1,0 +1,21 @@
+{
+  "name": "pitch-display",
+  "version": "0.1.0",
+  "description": "",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "d3-scale": "^2.2.2",
+    "lodash-es": "^4.17.11"
+  },
+  "devDependencies": {
+    "@types/d3-scale": "^2.1.1",
+    "@types/lodash-es": "^4.17.3",
+    "typescript": "^3.3.3333"
+  }
+}
