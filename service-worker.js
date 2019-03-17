@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/pitch-detection-app/precache-manifest.212ca39b672bb7630d773ee0de56d076.js"
+  "/pitch-detection-app/precache-manifest.54a09dc7b0f45da0a3db1f462b8a7b40.js"
 );
 
 workbox.clientsClaim();

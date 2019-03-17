@@ -8,31 +8,31 @@ self.__precacheManifest = [
     "url": "/pitch-detection-app/static/media/play.7674a1b6.svg"
   },
   {
-    "revision": "43edf1ebb7b63993e784",
-    "url": "/pitch-detection-app/static/js/runtime~main.bc85d236.js"
+    "revision": "c48b4f44b736aef1311a",
+    "url": "/pitch-detection-app/static/js/runtime~main.feaed701.js"
   },
   {
     "revision": "6a849baffdb4641dde69",
     "url": "/pitch-detection-app/static/js/main.439c75ee.chunk.js"
   },
   {
-    "revision": "868745d3a7c6af7326fe",
-    "url": "/pitch-detection-app/static/js/3.eb3bfa99.chunk.js"
+    "revision": "05ebdfe6db410677a6a6",
+    "url": "/pitch-detection-app/static/js/3.c3962011.chunk.js"
   },
   {
     "revision": "c7f61841e64a67e06fd5",
     "url": "/pitch-detection-app/static/js/2.b0b9fa78.chunk.js"
   },
   {
-    "revision": "868745d3a7c6af7326fe",
-    "url": "/pitch-detection-app/static/css/3.7d73143d.chunk.css"
+    "revision": "05ebdfe6db410677a6a6",
+    "url": "/pitch-detection-app/static/css/3.8e33fe2a.chunk.css"
   },
   {
-    "revision": "ee07f9c2945a810f5c68a1ea25ae0d91",
+    "revision": "b18c9bc7ca2febeff27905531d5bffb5",
     "url": "/pitch-detection-app/index.html"
   },
   {
-    "revision": "868745d3a7c6af7326fe",
+    "revision": "05ebdfe6db410677a6a6",
     "url": "/pitch-detection-app/9815cf1d6d7663c82270.module.wasm"
   }
 ];
