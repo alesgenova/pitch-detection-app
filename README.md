@@ -1,18 +1,18 @@
 # Pitch Detection App
-An opensource pitch detection app build that uses Rust and WebAssembly
+An open source pitch detection app that uses Rust and WebAssembly
 
 ## Live Demo
-[Here]()
+[![Demo Page](./demo.png)](https://alesgenova.github.io/pitch-detection-app/)
 
 ## Components
 ### Core Pitch Detection Library
-Rust ([source]())
+- Rust ([source](https://github.com/alesgenova/pitch-detection))
 
 ### WebAssembly Wrapper
-Rust / wasm-bindgen ([source]())
+- Rust / wasm-bindgen ([source](https://github.com/alesgenova/pitch-detection))
 
 ### Pitch Visualization
-TypeScript, HTML5 Canvas, D3 ([source]())
+- TypeScript, HTML5 Canvas, D3 ([source](https://github.com/alesgenova/pitch-detection-app/tree/master/display))
 
 ### Single Page App
-React ([source]())
+- React ([source](https://github.com/alesgenova/pitch-detection-app/tree/master/client))
