@@ -56,13 +56,18 @@ select {
 
 .content {
   position: absolute;
-  padding-top: 2rem;
   width: 100%;
   max-width: 60rem;
   left: 50%;
+  max-height: 100%;
   transform: translateX(-50%);
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  overflow-y: scroll;
+}
+
+.content::-webkit-scrollbar { /* WebKit */
+  display: none;
 }
 
 .full {
@@ -86,6 +91,7 @@ select {
   font-size: 1.5rem;
   padding: 0;
   margin: 0;
+  z-index: 5;
 }
 
 .floating-container-center {

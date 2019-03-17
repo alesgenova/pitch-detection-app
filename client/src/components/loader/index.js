@@ -12,8 +12,6 @@ export default ({ detectorName, sampleRate, windowSize, clarityThreshold, onPara
           A Rust + WebAssembly Pitch Detector
         </h2>
 
-        <br/>
-
         <h3>
           Author
         </h3>
