@@ -1,26 +1,17 @@
-extern crate cfg_if;
-extern crate wasm_bindgen;
-extern crate pitch_detection;
-
 mod utils;
 
-use cfg_if::cfg_if;
 use wasm_bindgen::prelude::*;
 
-use pitch_detection::{AutocorrelationDetector as AutocorrelationDetectorInternal};
-use pitch_detection::{McLeodDetector as McLeodDetectorInternal};
-use pitch_detection::PitchDetector;
-use pitch_detection::Pitch;
+use pitch_detection::detector::PitchDetector;
+use pitch_detection::detector::autocorrelation::{AutocorrelationDetector as AutocorrelationDetectorInternal};
+use pitch_detection::detector::mcleod::{McLeodDetector as McLeodDetectorInternal};
+use pitch_detection::detector::internals::Pitch;
 
-cfg_if! {
-    // When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
-    // allocator.
-    if #[cfg(feature = "wee_alloc")] {
-        extern crate wee_alloc;
-        #[global_allocator]
-        static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
-    }
-}
+// When the `wee_alloc` feature is enabled, use `wee_alloc` as the global
+// allocator.
+#[cfg(feature = "wee_alloc")]
+#[global_allocator]
+static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen]
 pub struct AutocorrelationDetector {
