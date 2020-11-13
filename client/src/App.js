@@ -24,7 +24,7 @@ function getDetectorClass(name) {
 }
 
 class App extends Component {
-  POWER_THRESHOLD = 0.25;
+  POWER_THRESHOLD = 0.15;
 
   constructor(props) {
     super(props);
