@@ -1,13 +1,23 @@
 import React from 'react';
 
 import { BACKGROUND, PRIMARY, PRIMARY_LIGHT, PRIMARY_TEXT } from '../../constants/colors';
+import { State as AppState } from '../../App';
 
 import PlayIcon from './play.svg';
 
-export default ({ detectorName, sampleRate, windowSize, clarityThreshold, onParamChange, onStart, loading }) => {
+interface Props {
+  detectorName: 'autocorrelation' | 'mcleod';
+  loading: boolean;
+  windowSize: number;
+  clarityThreshold: number;
+  onParamChange: <K extends keyof AppState>(key: K, value: AppState[K]) => void;
+  onStart: () => void;
+}
+
+const Loader: React.FC<Props> = ({ detectorName, windowSize, clarityThreshold, onParamChange, onStart, loading }) => {
   return (
-    <div className="full" style={{backgroundColor: BACKGROUND, position: 'relative'}}>
-      <div className="content" style={{textAlign: 'center'}}>
+    <div className="full" style={{ backgroundColor: BACKGROUND, position: 'relative' }}>
+      <div className="content" style={{ textAlign: 'center' }}>
         <h2>
           A Rust + WebAssembly Pitch Detector
         </h2>
@@ -24,7 +34,7 @@ export default ({ detectorName, sampleRate, windowSize, clarityThreshold, onPara
         </h3>
         <span>
           <a href="https://github.com/alesgenova/pitch-detection" target="_blank">Source</a>
-          <br/>
+          <br />
           (rust)
         </span>
 
@@ -33,34 +43,24 @@ export default ({ detectorName, sampleRate, windowSize, clarityThreshold, onPara
         </h3>
         <span>
           <a href="https://github.com/alesgenova/pitch-detection-app" target="_blank">Source</a>
-          <br/>
+          <br />
           (wasm, react)
         </span>
 
-        <br/>
+        <br />
 
         <h3>
           Detector
         </h3>
-        <select value={detectorName} onChange={(e) => {onParamChange('detectorName', e.target.value)}}>
+        <select value={detectorName} onChange={(e) => { onParamChange('detectorName', e.target.value as any) }}>
           <option value="mcleod">McLeod</option>
           <option value="autocorrelation">Autocorrelation</option>
         </select>
 
         <h3>
-          Sample Rate
-        </h3>
-        <select value={sampleRate} onChange={(e) => {onParamChange('sampleRate', e.target.value)}}>
-          <option value={11025}>11025 Hz</option>
-          <option value={22050}>22050 Hz</option>
-          <option value={44100}>44100 Hz</option>
-          <option value={48000}>48000 Hz</option>
-        </select>
-
-        <h3>
           Window Size
         </h3>
-        <select value={windowSize} onChange={(e) => {onParamChange('windowSize', e.target.value)}}>
+        <select value={windowSize} onChange={(e) => { onParamChange('windowSize', parseInt(e.target.value)) }}>
           <option value={512}>512 samples</option>
           <option value={1024}>1024 samples</option>
           <option value={2048}>2048 samples</option>
@@ -70,8 +70,8 @@ export default ({ detectorName, sampleRate, windowSize, clarityThreshold, onPara
         <h3>
           Clarity Threshold
         </h3>
-        <input value={clarityThreshold} type="range" min={0.0} max={1.0} step={0.01} onChange={(e) => {onParamChange('clarityThreshold', e.target.value)}}/>
-        <br/>
+        <input value={clarityThreshold} type="range" min={0.0} max={1.0} step={0.01} onChange={(e) => { onParamChange('clarityThreshold', parseFloat(e.target.value)) }} />
+        <br />
         ({clarityThreshold})
 
       </div>
@@ -80,11 +80,13 @@ export default ({ detectorName, sampleRate, windowSize, clarityThreshold, onPara
           disabled={loading}
           onClick={onStart}
           className="floating-button-large"
-          style={{backgroundColor: loading ? PRIMARY_LIGHT : PRIMARY, color: PRIMARY_TEXT}}
+          style={{ backgroundColor: loading ? PRIMARY_LIGHT : PRIMARY, color: PRIMARY_TEXT }}
         >
-          <ion-icon src={PlayIcon}/>
+          <img src={PlayIcon} />
         </button>
       </div>
     </div>
   )
 }
+
+export default Loader;
