@@ -86,7 +86,7 @@ class PitchComponent extends Component<Props> {
   render() {
     const { onStop } = this.props;
     return (
-      <div className="full" style={{ position: 'relative' }}>
+      <React.Fragment>
         <div className="full" style={{ position: 'relative' }}
           ref={this.displayElement}
         />
@@ -99,7 +99,7 @@ class PitchComponent extends Component<Props> {
             <img src={StopIcon} />
           </button>
         </div>
-      </div>
+      </React.Fragment>
     )
   }
 }

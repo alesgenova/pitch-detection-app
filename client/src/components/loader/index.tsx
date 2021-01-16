@@ -16,7 +16,7 @@ interface Props {
 
 const Loader: React.FC<Props> = ({ detectorName, windowSize, clarityThreshold, onParamChange, onStart, loading }) => {
   return (
-    <div className="full" style={{ backgroundColor: BACKGROUND, position: 'relative' }}>
+    <React.Fragment>
       <div className="content" style={{ textAlign: 'center' }}>
         <h2>
           A Rust + WebAssembly Pitch Detector
@@ -85,7 +85,7 @@ const Loader: React.FC<Props> = ({ detectorName, windowSize, clarityThreshold, o
           <img src={PlayIcon} />
         </button>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 

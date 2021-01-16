@@ -1,11 +1,11 @@
 import React from 'react';
-import './App.css';
 
 import { WorkerMessenger, ParentHandshake, Connection } from 'post-me';
 
 import HeaderComponent from './components/header';
 import LoaderComponent from './components/loader';
 import PitchComponent from './components/pitch';
+import { BACKGROUND } from './constants/colors';
 
 interface Props { };
 export interface State {
@@ -120,11 +120,9 @@ class App extends React.Component<Props, State> {
       workerConnection,
     } = this.state;
     return (
-      <div className="app">
+      <div className="app" style={{ backgroundColor: BACKGROUND }}>
         <HeaderComponent />
-
         <div className="content-container">
-
           {!loaded &&
             <LoaderComponent
               detectorName={detectorName}
@@ -147,7 +145,6 @@ class App extends React.Component<Props, State> {
               onStop={this.onStop}
             />
           }
-
         </div>
       </div>
     );
