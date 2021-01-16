@@ -16,3 +16,21 @@ An open source pitch detection app that uses Rust and WebAssembly
 
 ### Single Page App
 - React ([source](https://github.com/alesgenova/pitch-detection-app/tree/master/client))
+
+### Building
+```bash
+# Build wasm
+# Prerequisite: cargo and wasm-pack
+cd wasm
+wasm-pack --target web
+
+# Build the visualization
+cd ../display
+npm install
+npm run build
+
+# Start the app
+cd ../client
+npm install
+npm run start
+```
