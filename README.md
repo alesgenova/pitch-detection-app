@@ -8,6 +8,9 @@ An open source pitch detection app that uses Rust and WebAssembly
 ### Core Pitch Detection Library
 - Rust ([source](https://github.com/alesgenova/pitch-detection))
 
+### Communication with web worker
+- post-me ([source](https://github.com/alesgenova/post-me))
+
 ### WebAssembly Wrapper
 - Rust / wasm-bindgen ([source](https://github.com/alesgenova/pitch-detection-app/tree/master/wasm))
 

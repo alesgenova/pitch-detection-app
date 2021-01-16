@@ -24,6 +24,7 @@
     "react-scripts": "^4.0.1",
     "rollup": "^2.36.0",
     "rollup-plugin-copy": "^3.3.0",
+    "tslib": "^2.1.0",
     "typescript": "^3.9.2",
     "web-vitals": "^0.2.4"
   },
