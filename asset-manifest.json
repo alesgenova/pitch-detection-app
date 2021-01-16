@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/pitch-detection-app/static/css/main.4935a698.chunk.css",
-    "main.js": "/pitch-detection-app/static/js/main.ad7e596d.chunk.js",
-    "main.js.map": "/pitch-detection-app/static/js/main.ad7e596d.chunk.js.map",
-    "runtime-main.js": "/pitch-detection-app/static/js/runtime-main.f0b5544b.js",
-    "runtime-main.js.map": "/pitch-detection-app/static/js/runtime-main.f0b5544b.js.map",
-    "static/js/2.16aa0050.chunk.js": "/pitch-detection-app/static/js/2.16aa0050.chunk.js",
-    "static/js/2.16aa0050.chunk.js.map": "/pitch-detection-app/static/js/2.16aa0050.chunk.js.map",
-    "static/js/3.7662f237.chunk.js": "/pitch-detection-app/static/js/3.7662f237.chunk.js",
-    "static/js/3.7662f237.chunk.js.map": "/pitch-detection-app/static/js/3.7662f237.chunk.js.map",
+    "main.css": "/pitch-detection-app/static/css/main.7e23ca2e.chunk.css",
+    "main.js": "/pitch-detection-app/static/js/main.77a54f45.chunk.js",
+    "main.js.map": "/pitch-detection-app/static/js/main.77a54f45.chunk.js.map",
+    "runtime-main.js": "/pitch-detection-app/static/js/runtime-main.74a7b8e9.js",
+    "runtime-main.js.map": "/pitch-detection-app/static/js/runtime-main.74a7b8e9.js.map",
+    "static/js/2.d37b1532.chunk.js": "/pitch-detection-app/static/js/2.d37b1532.chunk.js",
+    "static/js/2.d37b1532.chunk.js.map": "/pitch-detection-app/static/js/2.d37b1532.chunk.js.map",
+    "static/js/3.502f2e8a.chunk.js": "/pitch-detection-app/static/js/3.502f2e8a.chunk.js",
+    "static/js/3.502f2e8a.chunk.js.map": "/pitch-detection-app/static/js/3.502f2e8a.chunk.js.map",
     "index.html": "/pitch-detection-app/index.html",
-    "static/css/main.4935a698.chunk.css.map": "/pitch-detection-app/static/css/main.4935a698.chunk.css.map",
-    "static/js/2.16aa0050.chunk.js.LICENSE.txt": "/pitch-detection-app/static/js/2.16aa0050.chunk.js.LICENSE.txt",
+    "static/css/main.7e23ca2e.chunk.css.map": "/pitch-detection-app/static/css/main.7e23ca2e.chunk.css.map",
+    "static/js/2.d37b1532.chunk.js.LICENSE.txt": "/pitch-detection-app/static/js/2.d37b1532.chunk.js.LICENSE.txt",
     "static/media/play.f8ecb826.svg": "/pitch-detection-app/static/media/play.f8ecb826.svg",
     "static/media/stop.2f57eafa.svg": "/pitch-detection-app/static/media/stop.2f57eafa.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.f0b5544b.js",
-    "static/js/2.16aa0050.chunk.js",
-    "static/css/main.4935a698.chunk.css",
-    "static/js/main.ad7e596d.chunk.js"
+    "static/js/runtime-main.74a7b8e9.js",
+    "static/js/2.d37b1532.chunk.js",
+    "static/css/main.7e23ca2e.chunk.css",
+    "static/js/main.77a54f45.chunk.js"
   ]
 }
