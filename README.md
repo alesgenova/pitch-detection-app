@@ -25,7 +25,7 @@ An open source pitch detection app that uses Rust and WebAssembly
 # Build wasm
 # Prerequisite: cargo and wasm-pack
 cd wasm
-wasm-pack --target web
+wasm-pack build --target web
 
 # Build the visualization
 cd ../display
