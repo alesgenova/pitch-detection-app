@@ -1,22 +1,12 @@
 import React from 'react';
 
-import {
-  BACKGROUND,
-  PRIMARY,
-  PRIMARY_LIGHT,
-  PRIMARY_TEXT,
-} from '../../constants/colors';
 import { State as AppState } from '../../App';
-
-import PlayIcon from './play.svg';
 
 interface Props {
   detectorName: 'autocorrelation' | 'mcleod';
-  loading: boolean;
   windowSize: number;
   clarityThreshold: number;
   onParamChange: <K extends keyof AppState>(key: K, value: AppState[K]) => void;
-  onStart: () => void;
 }
 
 const Loader: React.FC<Props> = ({
@@ -24,8 +14,6 @@ const Loader: React.FC<Props> = ({
   windowSize,
   clarityThreshold,
   onParamChange,
-  onStart,
-  loading,
 }) => {
   return (
     <React.Fragment>
@@ -90,19 +78,6 @@ const Loader: React.FC<Props> = ({
           }}
         />
         <br />({clarityThreshold})
-      </div>
-      <div className="floating-container-center">
-        <button
-          disabled={loading}
-          onClick={onStart}
-          className="floating-button-large"
-          style={{
-            backgroundColor: loading ? PRIMARY_LIGHT : PRIMARY,
-            color: PRIMARY_TEXT,
-          }}
-        >
-          <img src={PlayIcon} />
-        </button>
       </div>
     </React.Fragment>
   );

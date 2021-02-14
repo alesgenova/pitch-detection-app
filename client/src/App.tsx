@@ -6,6 +6,8 @@ import HeaderComponent from './components/header';
 import LoaderComponent from './components/loader';
 import PitchComponent from './components/pitch';
 import { BACKGROUND } from './constants/colors';
+import { PitchMonitor } from './components/pitch/pitch-monitor';
+import { StartButton, StopButton } from './components/buttons';
 
 interface Props {}
 export interface State {
@@ -124,32 +126,41 @@ class App extends React.Component<Props, State> {
       stream,
       workerConnection,
     } = this.state;
+
+    let mainDisplay = null;
+    let button = null;
+    if (!loaded) {
+      mainDisplay = (
+        <LoaderComponent
+          detectorName={detectorName}
+          windowSize={windowSize}
+          clarityThreshold={clarityThreshold}
+          onParamChange={this.onParamChange}
+        />
+      );
+      button = <StartButton loading={loading} onStart={this.onStart} />;
+    } else if (stream && workerConnection) {
+      mainDisplay = (
+        <PitchMonitor
+          stream={stream}
+          detectorName={detectorName}
+          workerConnection={workerConnection}
+          windowSize={windowSize}
+          powerThreshold={this.POWER_THRESHOLD}
+          clarityThreshold={clarityThreshold}
+          enabled={true}
+          pitchRenderer={PitchComponent}
+        />
+      );
+      button = <StopButton onStop={this.onStop} />;
+    }
+
     return (
       <div className="app" style={{ backgroundColor: BACKGROUND }}>
         <HeaderComponent />
         <div className="content-container">
-          {!loaded && (
-            <LoaderComponent
-              detectorName={detectorName}
-              windowSize={windowSize}
-              clarityThreshold={clarityThreshold}
-              onParamChange={this.onParamChange}
-              onStart={this.onStart}
-              loading={loading}
-            />
-          )}
-
-          {loaded && stream && workerConnection && (
-            <PitchComponent
-              stream={stream}
-              detectorName={detectorName}
-              workerConnection={workerConnection}
-              windowSize={windowSize}
-              powerThreshold={this.POWER_THRESHOLD}
-              clarityThreshold={clarityThreshold}
-              onStop={this.onStop}
-            />
-          )}
+          {mainDisplay}
+          {button}
         </div>
       </div>
     );
