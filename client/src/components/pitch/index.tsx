@@ -3,7 +3,13 @@ import { Connection } from 'post-me';
 
 import { PitchDisplay } from 'pitch-display';
 
-import { BACKGROUND, SECONDARY, SECONDARY_LIGHT, SECONDARY_TEXT, PRIMARY_LIGHT } from '../../constants/colors';
+import {
+  BACKGROUND,
+  SECONDARY,
+  SECONDARY_LIGHT,
+  SECONDARY_TEXT,
+  PRIMARY_LIGHT,
+} from '../../constants/colors';
 import { WorkerMethods } from '../../../worker/types';
 import StopIcon from './stop.svg';
 
@@ -28,21 +34,30 @@ class PitchComponent extends Component<Props> {
   pitchDisplay?: PitchDisplay;
 
   componentDidMount() {
-    this.pitchDisplay = new PitchDisplay(this.displayElement.current!, 6000, 5000);
+    this.pitchDisplay = new PitchDisplay(
+      this.displayElement.current!,
+      6000,
+      5000
+    );
     this.pitchDisplay.setBackgroundColor(BACKGROUND);
     const { stream, workerConnection, detectorName, windowSize } = this.props;
-    workerConnection.remoteHandle().call('createDetector', detectorName, windowSize, windowSize / 2).then(() => {
-      this.buffer = new Float32Array(windowSize);
-      this.audioContext = new AudioContext();
-      // Create an AudioNode from the stream.
-      this.mediaStreamSource = this.audioContext.createMediaStreamSource(stream);
-      // Connect it to the destination.
-      this.analyser = this.audioContext.createAnalyser();
-      this.analyser.fftSize = windowSize;
-      this.mediaStreamSource.connect(this.analyser);
-      window.addEventListener('resize', this.onResize);
-      this.mainLoop();
-    });
+    workerConnection
+      .remoteHandle()
+      .call('createDetector', detectorName, windowSize, windowSize / 2)
+      .then(() => {
+        this.buffer = new Float32Array(windowSize);
+        this.audioContext = new AudioContext();
+        // Create an AudioNode from the stream.
+        this.mediaStreamSource = this.audioContext.createMediaStreamSource(
+          stream
+        );
+        // Connect it to the destination.
+        this.analyser = this.audioContext.createAnalyser();
+        this.analyser.fftSize = windowSize;
+        this.mediaStreamSource.connect(this.analyser);
+        window.addEventListener('resize', this.onResize);
+        this.mainLoop();
+      });
   }
 
   componentWillUnmount() {
@@ -57,28 +72,37 @@ class PitchComponent extends Component<Props> {
     }
     requestAnimationFrame(this.mainLoop);
     this.updatePitch();
-  }
+  };
 
   onResize = () => {
     if (this.pitchDisplay) {
       this.pitchDisplay.resize();
     }
-  }
+  };
 
   updatePitch() {
     if (!this.pending) {
       this.pending = true;
       const { powerThreshold, clarityThreshold, workerConnection } = this.props;
-      const time = (new Date()).getTime();
+      const time = new Date().getTime();
       this.analyser!.getFloatTimeDomainData(this.buffer!);
-      workerConnection.remoteHandle().call('getPitch', this.buffer!, this.audioContext!.sampleRate, powerThreshold, clarityThreshold).then(result => {
-        const frequency = result[0];
-        const clarity = result[1];
-        if (frequency > 0) {
-          this.pitchDisplay!.pushFrequency({ frequency, clarity, time });
-        }
-        this.pending = false;
-      })
+      workerConnection
+        .remoteHandle()
+        .call(
+          'getPitch',
+          this.buffer!,
+          this.audioContext!.sampleRate,
+          powerThreshold,
+          clarityThreshold
+        )
+        .then((result) => {
+          const frequency = result[0];
+          const clarity = result[1];
+          if (frequency > 0) {
+            this.pitchDisplay!.pushFrequency({ frequency, clarity, time });
+          }
+          this.pending = false;
+        });
     }
     this.pitchDisplay!.render(false);
   }
@@ -87,7 +111,9 @@ class PitchComponent extends Component<Props> {
     const { onStop } = this.props;
     return (
       <React.Fragment>
-        <div className="full" style={{ position: 'relative' }}
+        <div
+          className="full"
+          style={{ position: 'relative' }}
           ref={this.displayElement}
         />
         <div className="floating-container">
@@ -100,7 +126,7 @@ class PitchComponent extends Component<Props> {
           </button>
         </div>
       </React.Fragment>
-    )
+    );
   }
 }
 
