@@ -56,6 +56,7 @@ export function PitchMonitor({
   const pendingRef = React.useRef(false);
   const pitchSetupRef = React.useRef<PitchSetup>({});
 
+  // Gets called first-thing whenever this component's props change.
   const setupConnection = React.useCallback(async () => {
     await workerConnection
       .remoteHandle()
@@ -73,6 +74,7 @@ export function PitchMonitor({
     mediaStreamSource.connect(pitchSetup.analyser);
   }, [pitchSetupRef, windowSize, detectorName, stream, workerConnection]);
 
+  // Find the current pitch/clarity and save it in `freq`/`clarity`.
   const updatePitch = React.useCallback(async () => {
     if (!pendingRef.current) {
       pendingRef.current = true;
@@ -114,8 +116,12 @@ export function PitchMonitor({
     setClarity,
     powerThreshold,
     clarityThreshold,
+    workerConnection,
   ]);
 
+  // This function only gets called when the dependencies update, and it automatically
+  // cleans up when it is called subsequent times. It starts an endless loop
+  // of computing the current pitch.
   React.useEffect(() => {
     if (!enabled) {
       // This function runs whenever the state of `enabled` changes.
