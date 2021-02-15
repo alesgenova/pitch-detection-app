@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "homepage": "http://alesgenova.github.io/pitch-detection-app",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@babel/preset-env": "^7.12.11",
@@ -35,13 +36,24 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm install && npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "prettier:check-staged": "pretty-quick --staged --check --pattern '**/*.{js,jsx,ts,tsx,css,html}'",
+    "prettier:write-staged": "pretty-quick --staged --write --pattern '**/*.{js,jsx,ts,tsx,css,html}'",
+    "prettier:check-modified": "pretty-quick --check --pattern '**/*.{js,jsx,ts,tsx,css,html}'",
+    "prettier:write-modified": "pretty-quick --write --pattern '**/*.{js,jsx,ts,tsx,css,html}'",
+    "prettier:check-all": "prettier --check '**/*.{js,jsx,ts,tsx,css,html}'",
+    "prettier:write-all": "prettier --write '**/*.{js,jsx,ts,tsx,css,html}'"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
       "react-app/jest"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier:write-staged"
+    }
   },
   "browserslist": {
     "production": [
@@ -54,5 +66,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^5.0.9",
+    "prettier": "2.2.1",
+    "pretty-quick": "^3.1.0"
   }
 }
