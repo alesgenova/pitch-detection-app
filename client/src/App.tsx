@@ -8,6 +8,7 @@ import PitchComponent from './components/pitch';
 import { BACKGROUND } from './constants/colors';
 import { PitchMonitor } from './components/pitch/pitch-monitor';
 import { StartButton, StopButton } from './components/buttons';
+import { CircleChart } from './components/circle-chart/circle-chat';
 
 interface Props {}
 export interface State {
@@ -18,6 +19,7 @@ export interface State {
   windowSize: number;
   clarityThreshold: number;
   workerConnection: Connection | undefined;
+  displayType: 'chart' | 'circle';
 }
 
 class App extends React.Component<Props, State> {
@@ -33,6 +35,7 @@ class App extends React.Component<Props, State> {
       windowSize: 1024,
       clarityThreshold: 0.6,
       workerConnection: undefined,
+      displayType: 'chart',
     };
   }
 
@@ -125,6 +128,7 @@ class App extends React.Component<Props, State> {
       loaded,
       stream,
       workerConnection,
+      displayType,
     } = this.state;
 
     let mainDisplay = null;
@@ -135,11 +139,14 @@ class App extends React.Component<Props, State> {
           detectorName={detectorName}
           windowSize={windowSize}
           clarityThreshold={clarityThreshold}
+          displayType={displayType}
           onParamChange={this.onParamChange}
         />
       );
       button = <StartButton loading={loading} onStart={this.onStart} />;
     } else if (stream && workerConnection) {
+      const pitchRenderer =
+        displayType === 'circle' ? CircleChart : PitchComponent;
       mainDisplay = (
         <PitchMonitor
           stream={stream}
@@ -149,7 +156,7 @@ class App extends React.Component<Props, State> {
           powerThreshold={this.POWER_THRESHOLD}
           clarityThreshold={clarityThreshold}
           enabled={true}
-          pitchRenderer={PitchComponent}
+          pitchRenderer={pitchRenderer}
         />
       );
       button = <StopButton onStop={this.onStop} />;
