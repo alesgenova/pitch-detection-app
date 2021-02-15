@@ -17,7 +17,7 @@ export function StopButton({ onStop }: { onStop: () => void }) {
         className="floating-button"
         style={{ backgroundColor: SECONDARY, color: SECONDARY_TEXT }}
       >
-        <img src={StopIcon} />
+        <img src={StopIcon} alt="Stop" />
       </button>
     </div>
   );
@@ -41,7 +41,7 @@ export function StartButton({
           color: PRIMARY_TEXT,
         }}
       >
-        <img src={PlayIcon} />
+        <img src={PlayIcon} alt="Start" />
       </button>
     </div>
   );
