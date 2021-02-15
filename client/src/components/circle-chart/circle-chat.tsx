@@ -247,6 +247,9 @@ export function CircleChart({
       setW(width);
       setH(height);
     }
+    // Run the resizer once when the component mounts.
+    handleResize();
+
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
