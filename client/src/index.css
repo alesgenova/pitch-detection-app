@@ -12,8 +12,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -121,4 +121,49 @@ select {
   font-size: 2rem;
   padding: 0;
   margin: 0;
+}
+
+.freq-note,
+.freq-hz {
+  display: block;
+}
+.freq-note {
+  font-size: 24px;
+}
+.freq-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.freq-pointer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.freq-note-label {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 20px;
+}
+.freq-octave {
+  font-size: 0.6em;
+  vertical-align: sub;
+}
+.freq-surround {
+  position: relative;
+  overflow: hidden;
+  min-width: 400;
+  min-height: 400;
+  width: 100%;
+  height: 100%;
 }

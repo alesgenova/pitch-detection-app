@@ -6,6 +6,7 @@ interface Props {
   detectorName: 'autocorrelation' | 'mcleod';
   windowSize: number;
   clarityThreshold: number;
+  displayType: 'chart' | 'circle';
   onParamChange: <K extends keyof AppState>(key: K, value: AppState[K]) => void;
 }
 
@@ -13,6 +14,7 @@ const Loader: React.FC<Props> = ({
   detectorName,
   windowSize,
   clarityThreshold,
+  displayType,
   onParamChange,
 }) => {
   return (
@@ -77,7 +79,16 @@ const Loader: React.FC<Props> = ({
             onParamChange('clarityThreshold', parseFloat(e.target.value));
           }}
         />
-        <br />({clarityThreshold})
+        <br />({clarityThreshold})<h3>Display Type</h3>
+        <select
+          value={displayType}
+          onChange={(e) => {
+            onParamChange('displayType', e.target.value as 'chart' | 'circle');
+          }}
+        >
+          <option value="chart">Linear Chart</option>
+          <option value="circle">Circle Chart</option>
+        </select>
       </div>
     </React.Fragment>
   );
