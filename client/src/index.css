@@ -22,7 +22,16 @@ body {
 #root {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.main-container {
+  position: relative;
+  flex-grow: 1;
+}
+
+
 
 h3 {
   margin-top: 1rem;
@@ -166,4 +175,16 @@ select {
   min-height: 400;
   width: 100%;
   height: 100%;
+}
+
+
+.setting > *:last-child {
+  display: block;
+  text-align: right;
+  font-size: smaller;
+}
+.setting > *:first-child {
+  display: block;
+  text-align: left;
+  font-style: italic;
 }
