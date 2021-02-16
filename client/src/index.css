@@ -75,7 +75,8 @@ select {
   overflow-y: scroll;
 }
 
-.content::-webkit-scrollbar { /* WebKit */
+.content::-webkit-scrollbar {
+  /* WebKit */
   display: none;
 }
 
