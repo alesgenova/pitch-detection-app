@@ -136,6 +136,7 @@
 
 .main-container {
   padding-left: var(--sidenav-closed-width);
+  overflow: hidden;
 }
 
 main {

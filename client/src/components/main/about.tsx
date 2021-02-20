@@ -2,7 +2,7 @@ import React from 'react';
 
 export function About() {
   return (
-    <React.Fragment>
+    <div className="container">
       <h2>A Rust + WebAssembly Pitch Detector</h2>
       <h3>Authors</h3>
       <span>Alessandro Genova, Jason Siefken</span>
@@ -25,6 +25,6 @@ export function About() {
         <br />
         (wasm, react)
       </span>
-    </React.Fragment>
+    </div>
   );
 }

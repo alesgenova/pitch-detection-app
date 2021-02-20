@@ -131,9 +131,7 @@ export function AppFrame({ children }: { children: React.ReactNode }) {
           </SideNav.Nav>
         </SideNav>
 
-        <main className="container" role="main">
-          {children}
-        </main>
+        <main role="main">{children}</main>
       </div>
     </React.Fragment>
   );

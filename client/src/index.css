@@ -171,8 +171,8 @@ select {
 .freq-surround {
   position: relative;
   overflow: hidden;
-  min-width: 400;
-  min-height: 400;
+  min-width: 300px;
+  min-height: 300px;
   width: 100%;
   height: 100%;
 }
