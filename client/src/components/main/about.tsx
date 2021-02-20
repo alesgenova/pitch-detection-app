@@ -8,7 +8,11 @@ export function About() {
       <span>Alessandro Genova, Jason Siefken</span>
       <h3>Core Library</h3>
       <span>
-        <a href="https://github.com/alesgenova/pitch-detection" target="_blank">
+        <a
+          href="https://github.com/alesgenova/pitch-detection"
+          target="_blank"
+          rel="noreferrer"
+        >
           Source
         </a>
         <br />
@@ -19,6 +23,7 @@ export function About() {
         <a
           href="https://github.com/alesgenova/pitch-detection-app"
           target="_blank"
+          rel="noreferrer"
         >
           Source
         </a>
