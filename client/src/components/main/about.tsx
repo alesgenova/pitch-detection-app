@@ -4,8 +4,8 @@ export function About() {
   return (
     <React.Fragment>
       <h2>A Rust + WebAssembly Pitch Detector</h2>
-      <h3>Author</h3>
-      <span>Alessandro Genova</span>
+      <h3>Authors</h3>
+      <span>Alessandro Genova, Jason Siefken</span>
       <h3>Core Library</h3>
       <span>
         <a href="https://github.com/alesgenova/pitch-detection" target="_blank">
