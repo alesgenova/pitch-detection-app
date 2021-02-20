@@ -42,7 +42,7 @@ export function AppFrame({ children }: { children: React.ReactNode }) {
     }
 
     return stopStream;
-  }, [initializeStream, running]);
+  }, [initializeStream, running, setEnabled, stopStream]);
 
   return (
     <React.Fragment>
