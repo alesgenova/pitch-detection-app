@@ -1,4 +1,4 @@
-export const NOTE_STRINGS: string[] = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"];
+export const NOTE_STRINGS: string[] = ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"];
 
 export const OCTAVE_COLORS: [number, number, number][] = [
   [121, 85, 72], // brown

@@ -13,7 +13,7 @@ interface IFrequency {
 class PitchDisplay {
   scaleX: ScaleLinear<number, number>;
   scaleY: ScaleLinear<number, number>;
-  now: number; // Time at the lastest call to render()
+  now: number; // Time at the last call to render()
   container: HTMLElement;
   bgCanvas: HTMLCanvasElement;
   noteCanvas: HTMLCanvasElement;

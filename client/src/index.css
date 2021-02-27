@@ -22,7 +22,16 @@ body {
 #root {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.main-container {
+  position: relative;
+  flex-grow: 1;
+}
+
+
 
 h3 {
   margin-top: 1rem;
@@ -162,8 +171,20 @@ select {
 .freq-surround {
   position: relative;
   overflow: hidden;
-  min-width: 400;
-  min-height: 400;
+  min-width: 300px;
+  min-height: 300px;
   width: 100%;
   height: 100%;
+}
+
+
+.setting > *:last-child {
+  display: block;
+  text-align: right;
+  font-size: smaller;
+}
+.setting > *:first-child {
+  display: block;
+  text-align: left;
+  font-style: italic;
 }

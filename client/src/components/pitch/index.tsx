@@ -33,10 +33,12 @@ class PitchComponent extends Component<PitchProps> {
       }
     };
     startRender();
+    window.addEventListener('resize', this.onResize);
   }
 
   componentWillUnmount() {
     this.continuousUpdate = false;
+    window.removeEventListener('resize', this.onResize);
   }
 
   onResize = () => {
